@@ -8,3 +8,4 @@ console.log("Version 6");
 console.log("Version 7");
 console.log("Version 8");
 console.log("Version 9");
+console.log("Version 10");
