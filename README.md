@@ -23,3 +23,4 @@ console.log("Version 21");
 console.log("Version 22");
 console.log("Version 23");
 console.log("Version 24");
+console.log("Version 26");
