@@ -1,26 +1,22 @@
-# myrepo1
-Repository demo
-console.log("Version 2");
-console.log("Version 3");
-console.log("Version 4");
-console.log("Version 5");
-console.log("Version 6");
-console.log("Version 7");
-console.log("Version 8");
-console.log("Version 9");
-console.log("Version 10");
-console.log("Version 11");
-console.log("Version 12");
-console.log("Version 13");
-console.log("Version 14");
-console.log("Version 15");
-console.log("Version 16");
-console.log("Version 17");
-console.log("Version 18");
-console.log("Version 19");
-console.log("Version 20");
-console.log("Version 21");
-console.log("Version 22");
-console.log("Version 23");
-console.log("Version 24");
-console.log("Version 26");
+# Comic Downloader
+
+A simple Python project to search manga and download images from authorized URLs.
+
+## Features
+
+- Search manga by name
+- Download chapter images
+- Save locally
+
+## Install
+
+pip install -r requirements.txt
+
+## Run
+
+python main.py
+
+## Disclaimer
+
+Only download content you have permission to download.
+Respect copyright and website terms of service.
