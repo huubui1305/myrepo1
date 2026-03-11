@@ -1,22 +1,23 @@
-# Comic Downloader
+from search import search_manga
+from downloader import download_images
 
-A simple Python project to search manga and download images from authorized URLs.
+name = input("Enter manga name: ")
 
-## Features
+results = search_manga(name)
 
-- Search manga by name
-- Download chapter images
-- Save locally
+print("\nSearch results:\n")
 
-## Install
+for i, r in enumerate(results):
+    print(i+1, r["title"])
 
-pip install -r requirements.txt
+choice = int(input("\nSelect manga: ")) - 1
 
-## Run
+print("Selected:", results[choice]["title"])
 
-python main.py
+# Example image URLs (replace with legal sources)
+images = [
+    "https://example.com/page1.jpg",
+    "https://example.com/page2.jpg"
+]
 
-## Disclaimer
-
-Only download content you have permission to download.
-Respect copyright and website terms of service.
+download_images(images, results[choice]["title"])
