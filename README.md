@@ -1,23 +1,18 @@
-from search import search_manga
-from downloader import download_images
+import os
+import requests
 
-name = input("Enter manga name: ")
+def download_images(image_urls, folder):
 
-results = search_manga(name)
+    if not os.path.exists(folder):
+        os.makedirs(folder)
 
-print("\nSearch results:\n")
+    for i, url in enumerate(image_urls):
 
-for i, r in enumerate(results):
-    print(i+1, r["title"])
+        img = requests.get(url)
 
-choice = int(input("\nSelect manga: ")) - 1
+        filename = os.path.join(folder, f"page_{i+1}.jpg")
 
-print("Selected:", results[choice]["title"])
+        with open(filename, "wb") as f:
+            f.write(img.content)
 
-# Example image URLs (replace with legal sources)
-images = [
-    "https://example.com/page1.jpg",
-    "https://example.com/page2.jpg"
-]
-
-download_images(images, results[choice]["title"])
+        print("Downloaded:", filename)
