@@ -1,23 +1,23 @@
-from search import search_manga
-from downloader import download_images
+import requests
 
-name = input("Enter manga name: ")
+API_URL = "https://api.jikan.moe/v4/manga"
 
-results = search_manga(name)
+def search_manga(name):
 
-print("\nSearch results:\n")
+    params = {"q": name}
 
-for i, r in enumerate(results):
-    print(i+1, r["title"])
+    response = requests.get(API_URL, params=params)
 
-choice = int(input("\nSelect manga: ")) - 1
+    data = response.json()
 
-print("Selected:", results[choice]["title"])
+    results = []
 
-# Example image URLs (replace with legal sources)
-images = [
-    "https://example.com/page1.jpg",
-    "https://example.com/page2.jpg"
-]
+    for item in data["data"][:5]:
 
-download_images(images, results[choice]["title"])
+        results.append({
+            "title": item["title"],
+            "url": item["url"],
+            "chapters": item.get("chapters")
+        })
+
+    return results
